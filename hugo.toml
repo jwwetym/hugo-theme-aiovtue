@@ -32,7 +32,7 @@
 baseURL = 'https://www2.526656.xyz/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
-title = 'JWWETYM'          # 站点名称（浏览器标题、页脚版权等）
+title = '杰维特牡'          # 站点名称（浏览器标题、页脚版权等）
 theme = 'aiovtue'           # 主题目录：themes/aiovtue/
 hasCJKLanguage = true      # 启用中文分词（搜索、摘要等）
 enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layouts/robots.txt）
@@ -92,7 +92,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   description = '杰维特牡'                  # 站点默认描述（SEO、分享卡片）
   primaryColor = '#DF9193'                     # 主题主色
   favicon = '/hero/avatar.png'
-  defaultCover = '/hero/tt3.png'               # 文章默认头图（无 cover 时使用）
+  defaultCover = 'https://imgbed.ms1.asia/file/1787478836798_downloaded-image__2_.png'               # 文章默认头图（无 cover 时使用）
   math = false                                 # 默认关闭；单篇 front matter 写 math: true 启用构建时 KaTeX 渲染
   postIndent = true                            # 文章/关于页正文首行缩进 2em（单篇可写 indent: false 关闭）
 
