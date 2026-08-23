@@ -1,7 +1,7 @@
 ---
 title: "秘密哦"
 date: 2025-06-15
-cover: "https://r2tc.20030327.xyz/file/博客/主题/1780908652756_ghjuyh.png"
+cover: "https://imgbed.ms1.asia/file/1787287064827_city-lights-night-buildings-5k-dn.jpg"
 desc: "加密了哟，要不要猜猜密码呢~"
 location: "重庆"
 encrypted: true
@@ -10,8 +10,8 @@ source: local
 tags:
   - 私密
 photos:
-  - url: "https://r2tc.20030327.xyz/file/博客/主题/1780908652756_ghjuyh.png"
+  - url: "https://imgbed.ms1.asia/file/1787287064827_city-lights-night-buildings-5k-dn.jpg"
     date: 2026-06-15
-  - url: "https://r2tc.20030327.xyz/file/博客/主题/1780646594844_wallhaven-5geqr5.jpg"
+  - url: "https://imgbed.ms1.asia/file/1787287064827_city-lights-night-buildings-5k-dn.jpg"
     date: 2026-06-10
 ---
