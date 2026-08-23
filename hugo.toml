@@ -221,7 +221,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     rotateInterval = 5000  # 左侧随机文章轮播间隔（毫秒）
     [[params.notice.sections]]
       label = '--- 主域名 ---'
-      lines = ['www2.ms1.asia', 'www2.526656.xyz']
+      lines = ['hugo.ms1.asia', 'hugo.526656.xyz']
     [[params.notice.sections]]
       label = '--- 这是公告 ---'
       lines = ['欢迎来到我的空间']
