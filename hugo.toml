@@ -29,10 +29,10 @@
 # =============================================================================
 
 # 站点正式访问地址（影响 sitemap、RSS、分享链接等绝对 URL，部署前务必与真实域名一致）
-baseURL = 'https://daily.yybb.us/'
+baseURL = 'https://www2.526656.xyz/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
-title = 'AIOVTUE-雪'          # 站点名称（浏览器标题、页脚版权等）
+title = 'JWWETYM'          # 站点名称（浏览器标题、页脚版权等）
 theme = 'aiovtue'           # 主题目录：themes/aiovtue/
 hasCJKLanguage = true      # 启用中文分词（搜索、摘要等）
 enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layouts/robots.txt）
@@ -88,8 +88,8 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 # 站点参数（主题通过 .Site.Params 读取）
 # =============================================================================
 [params]
-  subtitle = '雪'                              # 副标题（首页标题后缀）
-  description = '雨是神的烟花'                  # 站点默认描述（SEO、分享卡片）
+  subtitle = 'jwwetym'                              # 副标题（首页标题后缀）
+  description = '杰维特牡'                  # 站点默认描述（SEO、分享卡片）
   primaryColor = '#DF9193'                     # 主题主色
   favicon = '/hero/avatar.png'
   defaultCover = '/hero/tt3.png'               # 文章默认头图（无 cover 时使用）
@@ -128,8 +128,8 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 
   # --- 侧栏 / 关于页作者信息 ---
   [params.author]
-    name = '作者名称'
-    avatar = '/hero/avatar.png'
+    name = 'ms'
+    avatar = 'https://imgbed.ms1.asia/file/1787477630757_45岁中医形象生成__2_.png'
     statusEmoji = '🌸'     # 头像角标
     statusMessage = '发呆ing...'
 
@@ -146,10 +146,10 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     lineOpacityDark = 0.1
 
   [params.hero]
-    title = 'AIOVTUE'
+    title = '国学馆'
     # motto：关闭一言时显示的格言；字符串=固定一句，数组=每次随机一条（打字机效果同一言）
     motto = [
-      '雨是神的烟花',
+      '欢迎你的到来',
       '山河远阔，人间烟火',
       '愿你眼中有光，心中有爱',
       '慢慢来，也比较快',
@@ -163,22 +163,20 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     fixedImg = true
     playerUrl = '/hero/player.mp4'
     urls = [
-      '/hero/tt3.png',
-      '/hero/tt1.png',
-      '/hero/tt2.png',
-      '/hero/sp1.mp4',
-      '/hero/hero-1.jpg', 
-      '/hero/hero-2.png', 
-      '/hero/hero-1.mp4',
-      '/hero/hero-2.mp4',
-      
+      'https://imgbed.ms1.asia/file/1787477262811_downloaded-image__2_.jpeg',      
+	  'https://imgbed.ms1.asia/file/1787477228411_downloaded-image__1_.jpeg',
+      'https://imgbed.ms1.asia/file/1787477332204_downloaded-image.png',
+      'https://imgbed.ms1.asia/file/1787477192777_downloaded-image.jpeg',
+	  '/hero/hero-1.mp4',
+	  '/hero/hero-2.mp4',
+	  
     ]
 
   # --- 页脚 ---
   [params.footer]
     since = 2024           # 版权起始年
-    runtimeSince = '2024-01-01'   # 站点运行倒计时起点（YYYY-MM-DD）
-    icp = '<a href="https://icp.gov.moe/?keyword=20260258" target="_blank" rel="noopener">萌ICP备20260258号</a>'
+    runtimeSince = '2024-06-01'   # 站点运行倒计时起点（YYYY-MM-DD）
+    icp = '<a href="https://icp.gov.moe/?keyword=20260258" target="_blank" rel="noopener">川ICP备20260258号</a>'
 
 # --- 首页公告栏（右侧域名列表）---
   # --- 首页文章列表布局 ---
@@ -223,36 +221,36 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     rotateInterval = 5000  # 左侧随机文章轮播间隔（毫秒）
     [[params.notice.sections]]
       label = '--- 主域名 ---'
-      lines = ['daily.yybb.us', 'day.yybb.us']
+      lines = ['www2.ms1.asia', 'www2.526656.xyz']
     [[params.notice.sections]]
       label = '--- 这是公告 ---'
-      lines = ['公告在配置文件中修改哦']
+      lines = ['欢迎来到我的空间']
 
   # --- 侧栏 / Hero 社交图标（icon 为 Iconify 图标名）---
   [[params.social]]
-    name = 'RSS'
-    link = '/index.xml'  # Hugo 默认 RSS 路径
-    icon = 'ri:rss-line'
+    name = '导航'
+    link = 'https://www.526656.xyz/'  # Hugo 默认 RSS 路径
+    icon = 'ri-home-3-line'
     color = 'orange'
   [[params.social]]
     name = 'GitHub'
-    link = 'https://github.com/AIOVTUE'
+    link = 'https://github.com/jwwetym/hugo-theme-aiovtue'
     icon = 'ri:github-line'
     color = '#6e5494'
   [[params.social]]
-    name = '微信公众号'
-    link = '/hero/wxgzh.png'
-    icon = 'ri:wechat-2-line'
+    name = '图床'
+    link = 'https://imgbed.ms1.asia/'
+    icon = 'ri-hotel-bed-line'
     color = '#1AAD19'
   [[params.social]]
-    name = 'E-Mail'
-    link = 'mailto:x@yybb.us'
-    icon = 'ri:mail-line'
+    name = 'cloudflare'
+    link = 'https://dash.cloudflare.com/'
+    icon = 'ri-cloud-fill'
     color = '#8E71C1'
   [[params.social]]
-    name = 'Travelling'
-    link = 'https://www.travellings.cn/go.html'
-    icon = 'ri:train-line'
+    name = 'homepage'
+    link = 'https://1.ms1.asia/'
+    icon = 'ri-home-smile-fill'
     color = '#8cb1b3'
 
   # --- 归档 / 标签页 ECharts 图表 ---
@@ -263,15 +261,15 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   # --- 文章页底部赞助按钮 ---
   [params.sponsor]
     enable = true
-    title = '我很可爱，请给我钱！'
-    description = '我很可爱哦，可以给我点钱钱嘛~'
+    title = '我很可爱，请我喝怀茶！'
+    description = '我很可爱哦，请我喝怀茶~'
     [[params.sponsor.methods]]
       name = '支付宝'
-      url = '/img/zfb.png'
+      url = 'https://imgbed.ms1.asia/file/1787474543854_1787474445452.jpg'
       color = '#00A3EE'
     [[params.sponsor.methods]]
       name = '微信支付'
-      url = '/img/weix.png'
+      url = 'https://imgbed.ms1.asia/file/1787474547804_mm_facetoface_collect_qrcode_1787474500798.png'
       color = '#2DC100'
 
   # --- 文章版权声明（CC 协议）---
@@ -325,8 +323,8 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 
   # --- 顶栏标题 ---
   [params.navbar]
-    titleParts = ['AIOVTUE-', '雪']   # 顶栏主标题分段（可产生动画效果）
-    subTitle = '雨是神的烟花'
+    titleParts = ['杰维特牡-', '&']   # 顶栏主标题分段（可产生动画效果）
+    subTitle = '用阴阳的法眼看世界'
     offset = 0
 
     # 移动端下滑隐藏顶栏（默认首页不生效，设 includeHome = true 则全站含首页生效）
