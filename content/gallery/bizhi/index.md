@@ -1,7 +1,7 @@
 ---
 title: "一些壁纸"
 date: 2025-08-18
-cover: "https://r2tc.20030327.xyz/file/博客/主题/1780640308182_AWDSV.jpg"
+cover: "https://imgbed.ms1.asia/file/1787287064827_city-lights-night-buildings-5k-dn.jpg"
 desc: "觉得好看的一些壁纸，喜欢的可以下载哦~"
 location: "重庆"
 encrypted: false
@@ -35,6 +35,6 @@ photos:
     date: 2026-5-22
   - url: "https://r2tc.20030327.xyz/file/博客/主题/1780909261513_1780909183175.png"
     date: 2026-5-22
-  - url: "https://r2tc.20030327.xyz/file/博客/主题/1780909397468_1780909368268.png"
+  - url: "https://imgbed.ms1.asia/file/1787252743828_underground-warrior-girl-a1.jpg"
     date: 2026-5-22
 ---
