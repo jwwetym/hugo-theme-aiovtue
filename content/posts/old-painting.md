@@ -2,7 +2,7 @@
 title: 画廊文章示例
 description: 这是一篇展示如何创建画廊文章的示例文章
 date: 2024-05-01
-cover: /hero/tt1.png
+cover: https://imgbed.ms1.asia/file/1787487450650_tt1.png
 categories:
   - 随笔
 tags:
