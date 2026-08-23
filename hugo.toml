@@ -146,7 +146,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     lineOpacityDark = 0.1
 
   [params.hero]
-    title = '阴阳法眼看世界'
+    title = '新学中医'
     # motto：关闭一言时显示的格言；字符串=固定一句，数组=每次随机一条（打字机效果同一言）
     motto = [
       '欢迎你的到来',
@@ -164,12 +164,8 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     playerUrl = '/hero/player.mp4'
     urls = [
       'https://imgbed.ms1.asia/file/1787477262811_downloaded-image__2_.jpeg',      
-	  'https://imgbed.ms1.asia/file/1787477228411_downloaded-image__1_.jpeg',
-      'https://imgbed.ms1.asia/file/1787477332204_downloaded-image.png',
-      'https://imgbed.ms1.asia/file/1787477192777_downloaded-image.jpeg',
-	  '/hero/hero-1.mp4',
-	  '/hero/hero-2.mp4',
-	  
+	  'https://imgbed.ms1.asia/file/1787252178969_sahara-desert-night-blue-moon-camels-gl.jpg',
+      'https://imgbed.ms1.asia/file/1787487450650_tt1.png'
     ]
 
   # --- 页脚 ---
