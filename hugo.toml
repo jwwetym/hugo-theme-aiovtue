@@ -174,8 +174,8 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 
   # --- 页脚 ---
   [params.footer]
-    since = 2024           # 版权起始年
-    runtimeSince = '2024-06-01'   # 站点运行倒计时起点（YYYY-MM-DD）
+    since = 2026           # 版权起始年
+    runtimeSince = '2026-06-01'   # 站点运行倒计时起点（YYYY-MM-DD）
     icp = '<a href="https://icp.gov.moe/?keyword=20260258" target="_blank" rel="noopener">川ICP备20260258号</a>'
 
 # --- 首页公告栏（右侧域名列表）---
@@ -223,7 +223,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
       label = '--- 主域名 ---'
       lines = ['hugo.ms1.asia', 'hugo.526656.xyz']
     [[params.notice.sections]]
-      label = '--- 这是公告 ---'
+      label = '--- ***** ---'
       lines = ['欢迎来到我的空间']
 
   # --- 侧栏 / Hero 社交图标（icon 为 Iconify 图标名）---
@@ -314,7 +314,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   [params.envelope]
     before = '/envelope/before.png'
     after = '/envelope/after.png'
-    cover = '/envelope/cover.png'
+    cover = 'https://imgbed.ms1.asia/file/1787478836798_downloaded-image__2_.png'
     line = '/envelope/line.png'
     wrapHeight = 447
     openHeight = 1050
