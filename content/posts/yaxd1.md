@@ -14,9 +14,8 @@ pinned: true
 ---
 ---
 
-## 今日推荐
+## ☀️此文音频
 
-这首曲子陪我度过了整个夏天 ☀️
 
 <!-- 原生 HTML5 播放器 -->
 <audio controls style="width: 100%;">
