@@ -98,7 +98,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 
   # --- 文章/关于页正文 ---
   [params.post]
-    fontSize = "1.1rem"                          # 正文字号（rem，如 0.95rem / 1.1rem）
+    fontSize = "1.5rem"                          # 正文字号（rem，如 0.95rem / 1.1rem）
 
   # --- 友链页 ---
   [params.links]
