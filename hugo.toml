@@ -319,7 +319,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 
   # --- 顶栏标题 ---
   [params.navbar]
-    titleParts = ['杰维特牡-', '&']   # 顶栏主标题分段（可产生动画效果）
+    titleParts = ['杰维特牡-', '明']   # 顶栏主标题分段（可产生动画效果）
     subTitle = '用阴阳的法眼看世界'
     offset = 0
 
