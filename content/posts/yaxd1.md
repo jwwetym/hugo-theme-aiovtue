@@ -12,7 +12,7 @@ ai: 这篇文章讲的是：49岁更年期女性，烘热汗出、心悸胸闷�
     核心启示：更年期烘热未必是火旺，常是炉寒火浮，治当温下焦、潜浮阳，而非见热清热。
 pinned: true
 ---
-
+---
 <div style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
   <span id="playBtn" style="background: #4CAF50; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; user-select: none;">▶ 播放音频</span>
   <audio id="audioPlayer" src="https://yy.ms1.asia/music/dufuwenluyian/1.mp3"></audio>
@@ -29,7 +29,7 @@ pinned: true
     }
   };
 </script>
-
+---
 今天和大家聊一个更年期心脏病的案子。这个案子的患者49岁，女性，更年期阶段，主诉一大堆——月经乱、心悸胸闷、乳腺胀痛、小腹痛、脸上瘀斑、烘热汗出、手脚凉、睡不好、胃口差。更年期的常见症状她几乎占全了。
 
 如果按照常规思路，烘热汗出、舌尖郁热，是不是很容易想到阴虚火旺、清热滋阴？但这位医家的诊断非常独特，他抓住的是脉象——右手脉浮取微浮、沉取细紧滞弱，命门脉火弱，尺脉不足；左手脉同样沉取细滞紧，尺弱。舌象是两边齿痕、胃区横纹，舌根略腻厚。
