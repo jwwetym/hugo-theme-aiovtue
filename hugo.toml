@@ -164,7 +164,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     playerUrl = '/hero/player.mp4'
     urls = [
       'https://imgbed.ms1.asia/file/1787477262811_downloaded-image__2_.jpeg',      
-	  'https://imgbed.ms1.asia/file/1787252178969_sahara-desert-night-blue-moon-camels-gl.jpg',
+	  'https://imgbed.ms1.asia/file/1787543711354_downloaded-image.jpeg',
       'https://imgbed.ms1.asia/file/1787487450650_tt1.png'
     ]
 
