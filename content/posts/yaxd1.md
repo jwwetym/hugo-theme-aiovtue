@@ -13,7 +13,22 @@ ai: 这篇文章讲的是：49岁更年期女性，烘热汗出、心悸胸闷�
 pinned: true
 ---
 
-[点击播放/下载音频](https://yy.ms1.asia/music/dufuwenluyian/1.mp3)
+<div style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
+  <span id="playBtn" style="background: #4CAF50; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; user-select: none;">▶ 播放音频</span>
+  <audio id="audioPlayer" src="https://yy.ms1.asia/music/dufuwenluyian/1.mp3"></audio>
+</div>
+<script>
+  document.getElementById('playBtn').onclick = function() {
+    var audio = document.getElementById('audioPlayer');
+    if (audio.paused) {
+      audio.play();
+      this.textContent = '⏸ 暂停';
+    } else {
+      audio.pause();
+      this.textContent = '▶ 播放音频';
+    }
+  };
+</script>
 
 今天和大家聊一个更年期心脏病的案子。这个案子的患者49岁，女性，更年期阶段，主诉一大堆——月经乱、心悸胸闷、乳腺胀痛、小腹痛、脸上瘀斑、烘热汗出、手脚凉、睡不好、胃口差。更年期的常见症状她几乎占全了。
 
