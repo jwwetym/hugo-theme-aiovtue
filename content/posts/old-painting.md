@@ -7,7 +7,6 @@ categories:
   - 随笔
 tags:
   - 随笔
-  - 测试
 layout: gallery-post
 ---
 
