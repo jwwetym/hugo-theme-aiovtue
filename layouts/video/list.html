@@ -1,4 +1,35 @@
 {{ define "main" }}
+
+<!-- 提前定义 playVideo 函数，确保卡片 onclick 可用 -->
+<script>
+  function playVideo(card) {
+    const url = card.dataset.url;
+    const title = card.dataset.title || '未知视频';
+    const desc = card.dataset.desc || '';
+    if (!url) return;
+
+    const player = document.getElementById('player');
+    const nowTitle = document.getElementById('now-title');
+    const nowDesc = document.getElementById('now-desc');
+
+    // 更新正在播放信息
+    nowTitle.textContent = title;
+    nowDesc.textContent = desc;
+
+    // 如果是直链视频，切换播放
+    if (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('.m3u8')) {
+      player.src = url;
+      player.load();
+      player.play().catch(() => {});
+      // 滚动到播放器
+      player.closest('div').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // 非直链（如B站）新窗口打开
+      window.open(url, '_blank');
+    }
+  }
+</script>
+
 <div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 70px 20px 20px;">
   
   <!-- 正在播放信息 -->
@@ -55,6 +86,25 @@
   {{ end }}
 </div>
 
+<style>
+  [data-theme="dark"] .video-card {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+  [data-theme="dark"] .video-card h4 {
+    color: #ddd;
+  }
+  [data-theme="dark"] .video-card p {
+    color: #aaa;
+  }
+  video::-webkit-media-controls-panel {
+    background-color: rgba(0,0,0,0.7);
+  }
+</style>
+
+{{ end }}{{ define "main" }}
+
+<!-- 提前定义 playVideo 函数，确保卡片 onclick 可用 -->
 <script>
   function playVideo(card) {
     const url = card.dataset.url;
@@ -84,6 +134,62 @@
   }
 </script>
 
+<div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 70px 20px 20px;">
+  
+  <!-- 正在播放信息 -->
+  <div id="now-playing" style="text-align: center; margin-bottom: 10px; font-size: 18px; color: var(--text-color, #333);">
+    <span id="now-title" style="font-weight: bold;">请选择视频</span>
+    <span id="now-desc" style="display: block; font-size: 14px; color: var(--meta-color, #888); margin-top: 4px;"></span>
+  </div>
+
+  <!-- 原生视频播放器 -->
+  <div style="width: 100%; max-width: 900px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.15); background: #000;">
+    <video id="player" controls preload="metadata" style="width: 100%; display: block; max-height: 500px;">
+      您的浏览器不支持视频播放。
+    </video>
+  </div>
+
+  <!-- 按 series 分组显示 -->
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $grouped := $pages.GroupByParam "series" }}
+  
+  {{ if $grouped }}
+    {{ range $grouped }}
+      <h2 style="margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-color, #DF9193); color: var(--primary-color, #DF9193); font-size: 24px;">
+        {{ .Key | default "未分类" }} 
+        <span style="font-size: 14px; font-weight: normal; color: #999;">（{{ len .Pages }}个视频）</span>
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+        {{ range .Pages.ByDate.Reverse }}
+          <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-desc="{{ .Description }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
+            <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+            <div style="padding: 12px 14px;">
+              <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--meta-color, #888); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ .Description | default "点击播放" }}</p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ else }}
+    <!-- 如果没有 series 字段，则全部归为“全部视频” -->
+    <h2 style="margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-color, #DF9193); color: var(--primary-color, #DF9193); font-size: 24px;">
+      全部视频
+    </h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+      {{ range .Pages.ByDate.Reverse }}
+        <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-desc="{{ .Description }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
+          <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+          <div style="padding: 12px 14px;">
+            <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
+            <p style="margin: 0; font-size: 13px; color: var(--meta-color, #888); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ .Description | default "点击播放" }}</p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
+
 <style>
   [data-theme="dark"] .video-card {
     background: #2a2a2a;
@@ -99,4 +205,5 @@
     background-color: rgba(0,0,0,0.7);
   }
 </style>
+
 {{ end }}
