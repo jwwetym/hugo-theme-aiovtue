@@ -386,6 +386,11 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
       name = '相册'
       url = '/gallery/'
       icon = 'ant-design:picture-filled'
+    [[params.menu.main]]
+      name = '视频'
+      url = '/video/'
+      icon = 'mdi:video-outline'
+      weight = 2.5
     [[params.menu.main.items]]
       name = '动态'
       url = '/moments/'
