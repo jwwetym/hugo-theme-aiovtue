@@ -95,10 +95,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   defaultCover = 'https://imgbed.ms1.asia/file/1787478836798_downloaded-image__2_.png'               # 文章默认头图（无 cover 时使用）
   math = false                                 # 默认关闭；单篇 front matter 写 math: true 启用构建时 KaTeX 渲染
   postIndent = true                            # 文章/关于页正文首行缩进 2em（单篇可写 indent: false 关闭）
-
- # 强制每次构建时刷新 CSS/JS 缓存
-  [params]
-  assetsHash = true
+  assetsHash = true                             # 强制每次构建时刷新 CSS/JS 缓存
   fingerprint = true
 
   # --- 文章/关于页正文 ---
