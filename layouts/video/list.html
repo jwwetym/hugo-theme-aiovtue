@@ -1,0 +1,88 @@
+cat > layouts/video/list.html << 'EOF'
+{{ define "main" }}
+<div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+  
+  <!-- 播放器容器 -->
+  <div id="dplayer" style="width: 100%; max-width: 900px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.15);"></div>
+
+  <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary-color, #DF9193);">📺 播放列表</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+    {{ range .Pages.ByDate.Reverse }}
+    <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+      <div style="padding: 12px 14px;">
+        <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
+        <p style="margin: 0; font-size: 13px; color: var(--meta-color, #888); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ .Description | default "点击播放" }}</p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<!-- 引入 DPlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer@1.26.1/dist/DPlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.1/dist/DPlayer.min.js"></script>
+<script>
+  (function() {
+    const cards = document.querySelectorAll('.video-card');
+    if (!cards.length) return;
+
+    const playlist = [];
+    cards.forEach(card => {
+      const url = card.dataset.url;
+      const title = card.dataset.title;
+      const cover = card.dataset.cover;
+      if (url && (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('.m3u8'))) {
+        playlist.push({ url, title, poster: cover });
+      } else if (url) {
+        card.onclick = function(e) { window.open(url, '_blank'); };
+      }
+    });
+
+    if (!playlist.length) {
+      document.getElementById('dplayer').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: #999;">暂无可直接播放的视频，请添加 mp4/webm 链接</div>';
+      return;
+    }
+
+    const dp = new DPlayer({
+      container: document.getElementById('dplayer'),
+      theme: '#DF9193',
+      autoplay: false,
+      loop: false,
+      screenshot: true,
+      hotkey: true,
+      preload: 'metadata',
+      volume: 0.7,
+      video: playlist[0],
+      playlist: playlist,
+    });
+
+    cards.forEach(card => {
+      const url = card.dataset.url;
+      if (!url) return;
+      if (!url.endsWith('.mp4') && !url.endsWith('.webm') && !url.includes('.m3u8')) return;
+      const idx = playlist.findIndex(item => item.url === url);
+      if (idx !== -1) {
+        card.onclick = function(e) {
+          dp.switchVideo(playlist[idx], idx);
+          document.getElementById('dplayer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+      }
+    });
+  })();
+</script>
+
+<style>
+  [data-theme="dark"] .video-card {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+  [data-theme="dark"] .video-card h4 {
+    color: #ddd;
+  }
+  [data-theme="dark"] .video-card p {
+    color: #aaa;
+  }
+</style>
+{{ end }}
+EOF
