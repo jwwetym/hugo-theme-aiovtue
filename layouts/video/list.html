@@ -20,7 +20,13 @@
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
         {{ range .Pages.ByDate.Reverse }}
-          {{ partial "video-card.html" . }}
+          <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
+            <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+            <div style="padding: 12px 14px;">
+              <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--meta-color, #888); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ .Description | default "点击播放" }}</p>
+            </div>
+          </div>
         {{ end }}
       </div>
     {{ end }}
@@ -31,22 +37,17 @@
     </h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
       {{ range .Pages.ByDate.Reverse }}
-        {{ partial "video-card.html" . }}
+        <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
+          <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+          <div style="padding: 12px 14px;">
+            <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
+            <p style="margin: 0; font-size: 13px; color: var(--meta-color, #888); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ .Description | default "点击播放" }}</p>
+          </div>
+        </div>
       {{ end }}
     </div>
   {{ end }}
 </div>
-
-<!-- 视频卡片渲染（放入 partial 方便复用，但这里直接写，因为简单） -->
-{{ define "partials/video-card.html" }}
-  <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
-    <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
-    <div style="padding: 12px 14px;">
-      <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
-      <p style="margin: 0; font-size: 13px; color: var(--meta-color, #888); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ .Description | default "点击播放" }}</p>
-    </div>
-  </div>
-{{ end }}
 
 <script>
   function playVideo(card) {
