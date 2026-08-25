@@ -45,7 +45,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 
 # --- 分页（首页文章列表）---
 [pagination]
-  pagerSize = 10           # 每页文章数
+  pagerSize = 12           # 每页文章数
 
 # --- 分类与标签 URL 路径 ---
 [taxonomies]
