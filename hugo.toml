@@ -197,7 +197,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     desktopListColumns = 'single' # （single，double）list模式下单双列样式切换在此配置
     desktopListItemStyle = 'cards' # layout=list时，single模式下选择文章列表为list/cards样式
     mobileCardsLayout = 'list'     #移动端样式设置（list、stack）注意桌面端cards和list模式下移动端布局略有区别，具体自行切换查看和体验
-    mobileCardsBatchSize = 10  # 每页文章数，这个和上一个配置都是桌面移动端通用的，只是名字没改而已
+    mobileCardsBatchSize = 12  # 每页文章数，这个和上一个配置都是桌面移动端通用的，只是名字没改而已
     # timelineBatchSize = 10   # 时间线模式：首屏条数及每次滚动加载条数
     
     # 下列配置在list模式下生效，不建议更改
