@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+<div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 70px 20px 20px;">
   
   <!-- 正在播放信息 -->
   <div id="now-playing" style="text-align: center; margin-bottom: 10px; font-size: 18px; color: var(--text-color, #333);">
@@ -78,12 +78,10 @@
       // 滚动到播放器
       player.closest('div').scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      // 非直链（如B站）新窗口打开，同时保留标题显示（但不播放）
+      // 非直链（如B站）新窗口打开
       window.open(url, '_blank');
     }
   }
-
-  // 可选：页面加载后，如果有视频，可以高亮第一个卡片等
 </script>
 
 <style>
