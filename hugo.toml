@@ -29,7 +29,7 @@
 # =============================================================================
 
 # 站点正式访问地址（影响 sitemap、RSS、分享链接等绝对 URL，部署前务必与真实域名一致）
-baseURL = 'https://hugo.526656.xyz/'
+baseURL = 'https://xxzy.526656.xyz/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
 title = '杰维特牡'          # 站点名称（浏览器标题、页脚版权等）
@@ -217,7 +217,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     rotateInterval = 5000  # 左侧随机文章轮播间隔（毫秒）
     [[params.notice.sections]]
       label = '--- 主域名 ---'
-      lines = ['hugo.ms1.asia', 'hugo.526656.xyz']
+      lines = ['xxzy.ms1.asia', 'xxzy.526656.xyz']
     [[params.notice.sections]]
       label = '--- ***** ---'
       lines = ['让我们一起学习，一起进步，一起成长，一起成为更好的自己']
