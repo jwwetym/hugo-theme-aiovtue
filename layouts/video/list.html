@@ -1,6 +1,12 @@
 {{ define "main" }}
 <div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
   
+  <!-- 正在播放信息 -->
+  <div id="now-playing" style="text-align: center; margin-bottom: 10px; font-size: 18px; color: var(--text-color, #333);">
+    <span id="now-title" style="font-weight: bold;">请选择视频</span>
+    <span id="now-desc" style="display: block; font-size: 14px; color: var(--meta-color, #888); margin-top: 4px;"></span>
+  </div>
+
   <!-- 原生视频播放器 -->
   <div style="width: 100%; max-width: 900px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.15); background: #000;">
     <video id="player" controls preload="metadata" style="width: 100%; display: block; max-height: 500px;">
@@ -20,7 +26,7 @@
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
         {{ range .Pages.ByDate.Reverse }}
-          <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
+          <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-desc="{{ .Description }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
             <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
             <div style="padding: 12px 14px;">
               <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
@@ -37,7 +43,7 @@
     </h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
       {{ range .Pages.ByDate.Reverse }}
-        <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
+        <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-desc="{{ .Description }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
           <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
           <div style="padding: 12px 14px;">
             <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
@@ -52,18 +58,32 @@
 <script>
   function playVideo(card) {
     const url = card.dataset.url;
+    const title = card.dataset.title || '未知视频';
+    const desc = card.dataset.desc || '';
     if (!url) return;
+
     const player = document.getElementById('player');
-    
+    const nowTitle = document.getElementById('now-title');
+    const nowDesc = document.getElementById('now-desc');
+
+    // 更新正在播放信息
+    nowTitle.textContent = title;
+    nowDesc.textContent = desc;
+
+    // 如果是直链视频，切换播放
     if (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('.m3u8')) {
       player.src = url;
       player.load();
       player.play().catch(() => {});
+      // 滚动到播放器
       player.closest('div').scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
+      // 非直链（如B站）新窗口打开，同时保留标题显示（但不播放）
       window.open(url, '_blank');
     }
   }
+
+  // 可选：页面加载后，如果有视频，可以高亮第一个卡片等
 </script>
 
 <style>
