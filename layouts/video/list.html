@@ -1,8 +1,7 @@
-cat > layouts/video/list.html << 'EOF'
 {{ define "main" }}
 <div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
   
-  <!-- 播放器容器 -->
+  <!-- 播放器 -->
   <div id="dplayer" style="width: 100%; max-width: 900px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.15);"></div>
 
   <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary-color, #DF9193);">📺 播放列表</h2>
@@ -19,7 +18,6 @@ cat > layouts/video/list.html << 'EOF'
   </div>
 </div>
 
-<!-- 引入 DPlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer@1.26.1/dist/DPlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.1/dist/DPlayer.min.js"></script>
 <script>
@@ -85,4 +83,3 @@ cat > layouts/video/list.html << 'EOF'
   }
 </style>
 {{ end }}
-EOF
