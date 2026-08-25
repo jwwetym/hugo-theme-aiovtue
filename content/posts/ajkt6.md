@@ -1,6 +1,6 @@
 
 ---
-title: "5常见灸法，哪种最适合你"
+title: "6艾灸的灸量"
 description: "艾灸系列课"
 date: 2026-08-25
 lastmod: 2026-08-25
