@@ -96,6 +96,11 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   math = false                                 # 默认关闭；单篇 front matter 写 math: true 启用构建时 KaTeX 渲染
   postIndent = true                            # 文章/关于页正文首行缩进 2em（单篇可写 indent: false 关闭）
 
+ # 强制每次构建时刷新 CSS/JS 缓存
+  [params]
+  assetsHash = true
+  fingerprint = true
+
   # --- 文章/关于页正文 ---
   [params.post]
     fontSize = "1.5rem"                          # 正文字号（rem，如 0.95rem / 1.1rem）
