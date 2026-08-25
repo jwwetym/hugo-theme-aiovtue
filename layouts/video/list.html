@@ -1,13 +1,17 @@
 {{ define "main" }}
 <div class="page-video-list" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
   
-  <!-- 播放器 -->
-  <div id="dplayer" style="width: 100%; max-width: 900px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.15);"></div>
+  <!-- 原生视频播放器 -->
+  <div style="width: 100%; max-width: 900px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.15); background: #000;">
+    <video id="player" controls preload="metadata" style="width: 100%; display: block; max-height: 500px;">
+      您的浏览器不支持视频播放。
+    </video>
+  </div>
 
   <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary-color, #DF9193);">📺 播放列表</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
     {{ range .Pages.ByDate.Reverse }}
-    <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div class="video-card" data-url="{{ .Params.video_url }}" data-title="{{ .Title }}" data-cover="{{ .Params.cover | default $.Site.Params.defaultCover }}" style="cursor: pointer; background: var(--card-bg, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; border: 2px solid var(--border-color, #eee);" onclick="playVideo(this)">
       <img src="{{ .Params.cover | default $.Site.Params.defaultCover }}" alt="{{ .Title }}" style="width: 100%; height: 140px; object-fit: cover; display: block;">
       <div style="padding: 12px 14px;">
         <h4 style="margin: 0 0 6px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-color, #222);">{{ .Title }}</h4>
@@ -18,56 +22,32 @@
   </div>
 </div>
 
-<link rel="stylesheet" href="https://cdn.staticfile.net/dplayer/1.26.1/DPlayer.min.css">
-<script src="https://cdn.staticfile.net/dplayer/1.26.1/DPlayer.min.js"></script>
 <script>
-  (function() {
-    const cards = document.querySelectorAll('.video-card');
-    if (!cards.length) return;
-
-    const playlist = [];
-    cards.forEach(card => {
-      const url = card.dataset.url;
-      const title = card.dataset.title;
-      const cover = card.dataset.cover;
-      if (url && (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('.m3u8'))) {
-        playlist.push({ url, title, poster: cover });
-      } else if (url) {
-        card.onclick = function(e) { window.open(url, '_blank'); };
-      }
-    });
-
-    if (!playlist.length) {
-      document.getElementById('dplayer').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: #999;">暂无可直接播放的视频，请添加 mp4/webm 链接</div>';
-      return;
+  function playVideo(card) {
+    const url = card.dataset.url;
+    if (!url) return;
+    const player = document.getElementById('player');
+    
+    // 如果是直链视频（mp4/webm/m3u8），切换播放
+    if (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('.m3u8')) {
+      player.src = url;
+      player.load();
+      player.play().catch(() => {});
+      // 滚动到播放器
+      player.closest('div').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // 非直链（如B站）新窗口打开
+      window.open(url, '_blank');
     }
+  }
 
-    const dp = new DPlayer({
-      container: document.getElementById('dplayer'),
-      theme: '#DF9193',
-      autoplay: false,
-      loop: false,
-      screenshot: true,
-      hotkey: true,
-      preload: 'metadata',
-      volume: 0.7,
-      video: playlist[0],
-      playlist: playlist,
-    });
-
-    cards.forEach(card => {
-      const url = card.dataset.url;
-      if (!url) return;
-      if (!url.endsWith('.mp4') && !url.endsWith('.webm') && !url.includes('.m3u8')) return;
-      const idx = playlist.findIndex(item => item.url === url);
-      if (idx !== -1) {
-        card.onclick = function(e) {
-          dp.switchVideo(playlist[idx], idx);
-          document.getElementById('dplayer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        };
-      }
-    });
-  })();
+  // 可选：如果页面加载时，自动播放第一个视频
+  document.addEventListener('DOMContentLoaded', function() {
+    const firstCard = document.querySelector('.video-card');
+    if (firstCard && firstCard.dataset.url && (firstCard.dataset.url.endsWith('.mp4') || firstCard.dataset.url.endsWith('.webm') || firstCard.dataset.url.includes('.m3u8'))) {
+      // 不自动播放，等待用户点击，避免打扰
+    }
+  });
 </script>
 
 <style>
@@ -80,6 +60,10 @@
   }
   [data-theme="dark"] .video-card p {
     color: #aaa;
+  }
+  /* 播放器控制条颜色适配深色（可选） */
+  video::-webkit-media-controls-panel {
+    background-color: rgba(0,0,0,0.7);
   }
 </style>
 {{ end }}
