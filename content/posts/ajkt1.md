@@ -12,10 +12,13 @@ tags:
 ai: 艾灸非人参般昂贵稀有，却有人参不具备的普惠之德。它以"久火"温阳散寒、通经活络，尤其适合现代人空调冷饮所致的阳虚湿寒体质。其效不在一时神奇，而在日日坚持，平淡中见真章，是贯穿中医治法、安全有效的日常保命良方。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/1Whatisrealmoxibustion.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
 
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/1Whatisrealmoxibustion.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 什么是真正的艾灸？
 
