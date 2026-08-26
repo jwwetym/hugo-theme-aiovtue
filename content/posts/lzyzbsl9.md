@@ -11,7 +11,7 @@ tags:
 ai: 好好学习，实时观摩
 pinned: true
 ---
-<details style="margin:20px 0;">
+<details style="margin:12px 0;">
     <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
         ▶ 点击播放视频
     </summary>
