@@ -12,10 +12,12 @@ tags:
 ai:  灸感不是乱走的，它有规律可循。七条路径涵盖循经感传、前后直达、左右互通、上下对应、环绕带脉、弥漫扩散和靶向病灶；四种形态包括绷紧如弓、波浪涌动、沸腾发热和短暂反应。这些现象都是艾热打通经络、调理气血的证明。新手若想快速体验灸感，首选印堂穴（大光明穴），灸至犯困是阳气补入的正常反应，困了就睡，醒了再续。听懂灸感的“路线”和“样子”，上病下治、左病右治的中医原理便一目了然，艾灸才算真正入门。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/8灸感往哪走/8灸感往哪走.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
-
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/8灸感往哪走/8灸感往哪走.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第八课：灸感往哪走？记住这几条路径，你就懂经络了！
 
