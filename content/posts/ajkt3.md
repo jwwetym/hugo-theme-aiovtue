@@ -12,10 +12,13 @@ tags:
 ai: 艾灸的七大功效环环相扣：以调和阴阳为根本，温经散寒治痛、扶阳固脱救急、补中益气举陷；又能拔毒泻热、防病延年、由内而外美容。其最大优势在于纯阳之火能双向调节，不问虚实寒热，以温补之法应对现代人阳虚寒湿之体。记住：艾灸无副作用，只有用错之法；坚持日久，正气自足，病邪难侵。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/3艾灸的功效/艾灸的功效.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
 
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/3艾灸的功效/艾灸的功效.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第三课：艾灸到底有多厉害？7大功效一次讲全
 
