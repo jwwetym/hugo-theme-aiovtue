@@ -2,7 +2,7 @@
 # 关于页：正文写在下方 Markdown 中；layout: about 使用主题关于模板
 title: "关于我"
 layout: "about"
-cover: "https://imgbed.ms1.asia/file/1787487449459_hero-1.mp4"
+cover: "https://imgbed.526656.xyz/file/1787487449459_hero-1.mp4"
 date: 2026-06-05
 tocStartLevel: 2
 tocEndLevel: 3
