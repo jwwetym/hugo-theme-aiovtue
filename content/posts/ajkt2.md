@@ -12,10 +12,13 @@ tags:
 ai: 艾灸原理分为“温热渗透”与“药性归经”两层：前者以持续稳定的热力透皮入络、暖脏腑；后者凭艾草通达十二经之性，火补元阳、温散寒湿。其独特优势在于不经脾胃吸收、不耗自身元气，故虚实皆宜、安全舒适，是“以时间换空间”的日常养正之道。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/2Whatistheprincipleofmoxibustion.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
 
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/2Whatistheprincipleofmoxibustion.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第二课：艾灸到底是什么原理？为什么能治病？
 
