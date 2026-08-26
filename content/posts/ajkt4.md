@@ -12,10 +12,12 @@ tags:
 ai: 艾条好坏直接决定艾灸效果。新艾燥气重伤气血，必须用陈艾；产地不必非“蕲艾”不可，南阳艾性价比高；比例8:1-15:1足够日常温补，过高反而燥烈。最实用的是四招辨别法：色土黄、味清香、烟淡白、热力温和能渗透。终极建议——自己买、自己存、循环用，比任何商家宣传都可靠。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/4艾条选择避坑指南/4艾条选择避坑指南.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
-
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/4艾条选择避坑指南/4艾条选择避坑指南.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第四课：艾条怎么选才不踩坑？
 
