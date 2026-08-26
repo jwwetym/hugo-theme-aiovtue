@@ -12,10 +12,13 @@ tags:
 ai: 灸感是判断艾灸是否起效的关键指标。它的本质是艾热穿透肌肤、沿经络传导时身体产生的真实反应——酸、麻、胀、跳、温热传导、微微出汗、甚至犯困，都算灸感。每个人的感受不同，无需攀比。关键在于：温而不烫，让热力慢慢渗透，而非追求猛火灼烤。新手可从印堂穴入手，最容易找到感觉。灸感温和舒适最好，过于强烈反可能是烫伤或耗气。记住：找到灸感，艾灸才算真正入了门。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/7艾灸的灸感/7艾灸的灸感.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
 
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/7艾灸的灸感/7艾灸的灸感.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第七课：什么是灸感？
 
