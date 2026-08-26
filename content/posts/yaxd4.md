@@ -3,7 +3,7 @@ title: "4早期心脏病案"
 description: "医案新读"
 date: 2026-08-25
 lastmod: 2026-08-25
-cover: "https://imgbed.ms1.asia/file/1787494702819_2026-08-23_221728.jpg"
+cover: "https://imgbed.526656.xyz/file/1787494702819_2026-08-23_221728.jpg"
 categories:
   - 医案新读
 tags:
@@ -14,7 +14,7 @@ pinned: true
 
 <div class="audio-wrapper" style="display:flex; align-items:center; gap:10px; margin:10px 0;">
   <button class="play-audio-btn" style="background:#DF9193; color:#fff; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:14px; border:none; font-weight:bold;">▶ 播放音频</button>
-  <audio class="audio-player" src="https://yy.ms1.asia/music/dufuwenluyian/4.MP3"></audio>
+  <audio class="audio-player" src="https://yy.526656.xyz/music/dufuwenluyian/4.MP3"></audio>
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
