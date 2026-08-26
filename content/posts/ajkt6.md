@@ -12,10 +12,13 @@ tags:
 ai: 灸量是艾灸效果的核心变量，其本质如吃饭——多少因人而异，讲究有度有章法。“火足”即单次30分钟起步，新病短、久病长；“气至”即施灸与被灸者皆专注，热力渗透、气感传导方见效。同时须因人（壮老强弱）、因时（冬近夏远）、因地（北重大南温和）灵活调整，最后守住“宁少勿多”的安全底线。灸量对了，艾灸才能真正成为补养而非消耗。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/6艾灸的灸量/6艾灸的灸量.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
 
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/6艾灸的灸量/6艾灸的灸量.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第六课：艾灸的灸量——灸多久、灸多少才合适？
 
