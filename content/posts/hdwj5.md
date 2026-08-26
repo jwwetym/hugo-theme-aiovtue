@@ -3,7 +3,7 @@ title: "5命根养生篇"
 description: "重读黄帝外经"
 date: 2026-08-23
 lastmod: 2026-08-23
-cover: "https://imgbed.ms1.asia/file/1787493183794_黄帝外经.jpg"
+cover: "https://imgbed.526656.xyz/file/1787493183794_黄帝外经.jpg"
 categories:
   - 黄帝外经
 tags:
