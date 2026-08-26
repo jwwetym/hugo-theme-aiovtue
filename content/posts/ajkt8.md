@@ -4,7 +4,7 @@ title: "8灸感往哪走"
 description: "艾灸系列课"
 date: 2026-08-25
 lastmod: 2026-08-25
-cover: "https://yy.ms1.asia/aijiu/8灸感往哪走/8灸感往哪走.jpg"
+cover: "https://yy.526656.xyz/aijiu/8灸感往哪走/8灸感往哪走.jpg"
 categories:
   - 艾灸课堂
 tags:
@@ -16,7 +16,7 @@ pinned: true
     <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
         ▶ 点击播放视频
     </summary>
-    <video src="https://yy.ms1.asia/aijiu/8灸感往哪走/8灸感往哪走.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+    <video src="https://yy.526656.xyz/aijiu/8灸感往哪走/8灸感往哪走.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
 </details>
 
 ### 第八课：灸感往哪走？记住这几条路径，你就懂经络了！
