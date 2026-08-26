@@ -14,7 +14,7 @@ pinned: true
 
 <div class="audio-wrapper" style="display:flex; align-items:center; gap:10px; margin:10px 0;">
   <button class="play-audio-btn" style="background:#DF9193; color:#fff; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:14px; border:none; font-weight:bold;">▶ 播放音频</button>
-  <audio class="audio-player" src="https://yy.ms1.asia/sfzwb/第1集.mp3"></audio>
+  <audio class="audio-player" src="https://yy.ms1.asia/sfzwb/第1课.mp3"></audio>
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
