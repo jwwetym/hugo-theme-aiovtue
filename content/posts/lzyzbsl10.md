@@ -366,7 +366,7 @@ pinned: true
 
     <!-- ===== 头部 ===== -->
     <header class="header">
-        <h1>🖼️ 图片展示</h1>
+        <h1>🖼️ 图片画廊</h1>
         <p>点击任意图片 · 沉浸式浏览</p>
         <span class="badge">✨ 共 6 张 · 支持键盘导航</span>
     </header>
@@ -385,7 +385,7 @@ pinned: true
         </div>
 
         <div class="info" id="lightboxInfo">
-            <span id="currentIndex">1</span> / <span id="totalCount">12</span>
+            <span id="currentIndex">1</span> / <span id="totalCountInfo">6</span>
             &nbsp;·&nbsp; <span id="imageTitle">图片名称</span>
         </div>
 
@@ -394,7 +394,7 @@ pinned: true
 
     <script>
         // ============================================================
-        //  数据：图片列表（使用 picsum.photos 占位图，确保每张不同）
+        //  你的 6 张图片（已替换为你提供的地址）
         // ============================================================
         const images = [
             { id: 1, title: '🏔️ 1', url: 'https://yy.ms1.asia/lzyzbsl/10/1.webp' },
@@ -403,11 +403,10 @@ pinned: true
             { id: 4, title: '🌅 4', url: 'https://yy.ms1.asia/lzyzbsl/10/4.webp' },
             { id: 5, title: '🏜️ 5', url: 'https://yy.ms1.asia/lzyzbsl/10/5.webp' },
             { id: 6, title: '🌺 6', url: 'https://yy.ms1.asia/lzyzbsl/10/6.webp' },
-           
         ];
 
         // ============================================================
-        //  DOM 引用
+        //  DOM 引用 & 状态
         // ============================================================
         const gallery = document.getElementById('gallery');
         const lightbox = document.getElementById('lightbox');
@@ -416,7 +415,7 @@ pinned: true
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const currentIndexEl = document.getElementById('currentIndex');
-        const totalCountEl = document.getElementById('totalCount');
+        const totalCountInfo = document.getElementById('totalCountInfo');
         const imageTitleEl = document.getElementById('imageTitle');
 
         let currentIdx = 0;
@@ -437,13 +436,12 @@ pinned: true
                 imgEl.alt = img.title;
                 imgEl.loading = 'lazy';
 
-                // 图片加载完成后移除 loading 状态
                 imgEl.addEventListener('load', () => {
                     item.classList.remove('loading');
                 });
-                // 如果图片加载失败，也移除 loading（避免永久闪烁）
                 imgEl.addEventListener('error', () => {
                     item.classList.remove('loading');
+                    imgEl.alt = '图片加载失败';
                 });
 
                 const overlay = document.createElement('div');
@@ -456,15 +454,12 @@ pinned: true
                 item.appendChild(imgEl);
                 item.appendChild(overlay);
 
-                // 点击打开灯箱
                 item.addEventListener('click', () => {
                     openLightbox(index);
                 });
 
                 gallery.appendChild(item);
             });
-
-            totalCountEl.textContent = total;
         }
 
         // ============================================================
@@ -475,7 +470,6 @@ pinned: true
             updateLightbox();
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // 聚焦到灯箱（便于键盘事件）
             lightbox.focus();
         }
 
@@ -505,27 +499,24 @@ pinned: true
         // ============================================================
         //  事件绑定
         // ============================================================
-        // 关闭
         closeBtn.addEventListener('click', closeLightbox);
 
-        // 点击灯箱背景关闭（点击内容区不关）
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
             }
         });
 
-        // 导航按钮
         prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             goPrev();
         });
+
         nextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             goNext();
         });
 
-        // 键盘事件
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
 
@@ -547,14 +538,10 @@ pinned: true
             }
         });
 
-        // 窗口大小变化时，图片自适应（无额外操作，仅靠 CSS）
-
         // ============================================================
-        //  初始化
+        //  启动
         // ============================================================
         renderGallery();
-
-        // 控制台提示
         console.log('🖼️ 图片画廊已加载 — 点击图片浏览，键盘 ← → 切换，ESC 关闭');
     </script>
 
