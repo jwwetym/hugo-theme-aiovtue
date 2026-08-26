@@ -12,10 +12,12 @@ tags:
 ai: 市面上灸法繁多，但家庭操作无需贪多求全。直接灸（化脓/米粒）效果虽猛但有创伤风险，隔物灸（姜/盐/花椒/附子）偏专业需辨证，均不作推荐。核心只教两种：悬定灸——手法简单、温热渗透、无创无痛，是日常养生首选；葫芦灸——火头朝下、穿透力强、解放双手，适合忙碌人群。另需警惕：艾灸分补泻，盲目猛灸反耗阳气，方向对了才不白费功夫。
 pinned: true
 ---
-<a href="https://yy.ms1.asia/aijiu/5常见灸法/5常见灸法.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
-
+<details style="margin:12px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/aijiu/5常见灸法/5常见灸法.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第五课：常见灸法，哪种最适合你？
 
