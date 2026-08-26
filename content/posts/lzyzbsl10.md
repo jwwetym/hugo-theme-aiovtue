@@ -11,13 +11,15 @@ tags:
 ai: 好好学习，实时观摩
 pinned: true
 ---
-<a href="https://yy.ms1.asia/lzyzbsl/10/10.mp4" target="_blank" rel="noopener" style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin:20px 0;">
-    ▶ 点击播放视频
-</a>
+<details style="margin:20px 0;">
+    <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
+        ▶ 点击播放视频
+    </summary>
+    <video src="https://yy.ms1.asia/lzyzbsl/10/10.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+</details>
 
 ### 第十集 图片展示
 
-点击下方图片可查看大图（浏览器原生行为）：
 
 ![图片1](https://yy.ms1.asia/lzyzbsl/10/1.webp)
 
