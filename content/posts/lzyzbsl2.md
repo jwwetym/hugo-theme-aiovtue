@@ -3,7 +3,7 @@ title: "第二集"
 description: "2026年7月31日"
 date: 2026-08-26
 lastmod: 2026-08-26
-cover: "https://yy.ms1.asia/lzyzbsl/lzyzbsl.jpg"
+cover: "https://yy.526656.xyz/lzyzbsl/lzyzbsl.jpg"
 categories:
   - 老中医诊病实录
 tags:
@@ -15,7 +15,7 @@ pinned: true
     <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
         ▶ 点击播放视频
     </summary>
-    <video src="https://yy.ms1.asia/lzyzbsl/2/2.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+    <video src="https://yy.526656.xyz/lzyzbsl/2/2.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
 </details>
 
 
