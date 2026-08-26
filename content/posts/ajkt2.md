@@ -4,7 +4,7 @@ title: "2艾灸的原理是什么？"
 description: "艾灸系列课"
 date: 2026-08-25
 lastmod: 2026-08-25
-cover: "https://yy.ms1.asia/aijiu/2Whatistheprincipleofmoxibustion.jpg"
+cover: "https://yy.526656.xyz/aijiu/2艾灸的原理是什么/2艾灸的原理是什么.jpg"
 categories:
   - 艾灸课堂
 tags:
@@ -17,7 +17,7 @@ pinned: true
     <summary style="display:inline-block; background:#DF9193; color:#fff; padding:10px 24px; border-radius:8px; cursor:pointer; font-weight:bold; border:none; outline:none; user-select:none;">
         ▶ 点击播放视频
     </summary>
-    <video src="https://yy.ms1.asia/aijiu/2Whatistheprincipleofmoxibustion.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
+    <video src="https://yy.526656.xyz/aijiu/2艾灸的原理是什么/2艾灸的原理是什么.mp4" controls style="width:100%; max-width:800px; border-radius:8px; margin-top:15px;"></video>
 </details>
 
 ### 第二课：艾灸到底是什么原理？为什么能治病？
