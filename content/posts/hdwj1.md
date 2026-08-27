@@ -1,5 +1,5 @@
 ---
-title: "1阴阳颠倒篇"
+title: "1-1阴阳颠倒篇"
 description: "重读黄帝外经"
 date: 2026-08-23
 lastmod: 2026-08-23
