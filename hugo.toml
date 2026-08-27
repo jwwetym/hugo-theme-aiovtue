@@ -132,7 +132,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   [params.author]
     name = 'ms'
     avatar = 'https://imgbed.ms1.asia/file/1787477630757_45岁中医形象生成__2_.png'
-    statusEmoji = '🌸'     # 头像角标
+    statusEmoji = '☯'     # 头像角标
     statusMessage = '发呆ing...'
 
   # --- 首页 Hero 大图 / 视频轮播 ---
