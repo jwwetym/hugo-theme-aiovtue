@@ -1,5 +1,5 @@
 ---
-title: "2-55经脉终始篇"
+title: "2-5经脉终始篇"
 description: "重读黄帝外经"
 date: 2026-08-27
 lastmod: 2026-08-27
