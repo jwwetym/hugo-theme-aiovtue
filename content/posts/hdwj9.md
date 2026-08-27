@@ -1,5 +1,5 @@
 ---
-title: "9骨阴篇"
+title: "1-9骨阴篇"
 description: "重读黄帝外经"
 date: 2026-08-27
 lastmod: 2026-08-27

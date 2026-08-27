@@ -1,5 +1,5 @@
 ---
-title: "7红铅损益篇"
+title: "1-7红铅损益篇"
 description: "重读黄帝外经"
 date: 2026-08-27
 lastmod: 2026-08-27

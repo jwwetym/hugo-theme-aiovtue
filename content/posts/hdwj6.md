@@ -1,5 +1,5 @@
 ---
-title: "6救母篇"
+title: "1-6救母篇"
 description: "重读黄帝外经"
 date: 2026-08-24
 lastmod: 2026-08-24
