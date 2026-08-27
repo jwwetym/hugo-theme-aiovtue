@@ -1,5 +1,5 @@
 ---
-title: "3回天生育"
+title: "1-3回天生育"
 description: "重读黄帝外经"
 date: 2026-08-23
 lastmod: 2026-08-23
