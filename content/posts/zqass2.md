@@ -1,8 +1,8 @@
 ---
 title: "2坎离二卦解"
 description: "坎离二卦解"
-date: 2026-09-3
-lastmod: 2026-09-3
+date: 2026-09-03
+lastmod: 2026-09-03
 cover: "https://imgbed.526656.xyz/file/1788403505945_郑钦安三书.jpg"
 categories:
   - 医理真传

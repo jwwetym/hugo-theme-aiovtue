@@ -1,8 +1,8 @@
 ---
 title: "4君相二火解"
 description: "君相二火解"
-date: 2026-09-3
-lastmod: 2026-09-3
+date: 2026-09-03
+lastmod: 2026-09-03
 cover: "https://imgbed.526656.xyz/file/1788403505945_郑钦安三书.jpg"
 categories:
   - 医理真传
