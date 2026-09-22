@@ -75,8 +75,8 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     lineNos = false
     tabWidth = 4
   [markup.tableOfContents]
-    startLevel = 2         # 目录从 h2 开始
-    endLevel = 4           # 目录至 h4，不显示 h5/h6
+    startLevel = 1         # 目录从 h1 开始
+    endLevel = 6           # 目录至 h6，不显示 h5/h6
     ordered = false
 
 # --- 资源类型：将 .excalidraw 识别为 JSON page bundle 资源 ---
