@@ -2,9 +2,9 @@
 title: "扶阳思考与临证实践"
 toc: true
 description: "扶阳思考与临证实践"
-date: 2026-09-22
-lastmod: 2026-09-22
-cover: "https://imgbed.526656.xyz/file/1790031845838_MVIMG_20260922_070240.jpg"
+date: 2026-09-26
+lastmod: 2026-09-26
+cover: "https://imgbed.526656.xyz/file/1790434556996_MVIMG_20260926_225509.jpg"
 categories:
   - 扶阳医书
 tags:
