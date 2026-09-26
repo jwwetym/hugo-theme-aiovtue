@@ -467,7 +467,6 @@ customCSS = '''
     border-radius:0 0 16px 16px;
   }
   .toc-drawer.open{ top:0; }
-
   /* 抽屉头部标题栏 */
   .toc-drawer__header{
     display:flex;
@@ -495,7 +494,6 @@ customCSS = '''
   .toc-drawer__content{
     padding:16px 20px 40px;
   }
-
   /* 深色模式适配 */
   .dark .toc-drawer{ background:#1c1c1c; }
   .dark .toc-drawer__header{ border-bottom-color:#333; }
@@ -507,77 +505,72 @@ customCSS = '''
   }
 }
 '''
-
 customJS = '''
 function initMobileToc(){
   const isMobile = window.matchMedia('(max-width:768px)').matches;
   console.log("【目录调试】是否移动端：", isMobile);
   if(!isMobile) return;
-
   // 清理旧元素，防止pjax重复生成
   document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(el=>el.remove());
-
-  const originToc = document.querySelector('.post-toc');
-  if(!originToc){
-    console.log("【目录调试】找不到 .post-toc 元素！检查文章frontmatter是否开启toc: true");
+  // 从文章正文抓取h2~h4标题
+  const article = document.querySelector('.post-content, article');
+  if(!article){
+    console.log("【目录调试】找不到文章主体");
     return;
   }
-  if(originToc.innerHTML.trim() === ""){
-    console.log("【目录调试】目录内容为空，文章没有h标题");
+  const headings = article.querySelectorAll('h2,h3,h4');
+  if(headings.length === 0){
+    console.log("【目录调试】没有找到标题");
     return;
   }
+  // 构建目录html
+  let tocHtml = "<ul>";
+  headings.forEach(h=>{
+    if(!h.id) h.id = encodeURIComponent(h.innerText);
+    tocHtml += `<li><a href="#${h.id}">${h.innerText}</a></li>`;
+  })
+  tocHtml += "</ul>";
 
-  console.log("【目录调试】成功读取目录");
   // 悬浮按钮
   const btn = document.createElement('button');
   btn.className="toc-float-btn";
   btn.innerText="📖 目录";
-
   // 抽屉整体容器
   const drawer = document.createElement('div');
   drawer.className="toc-drawer";
-
-  // 【目录标题头部】
   const drawerHeader = document.createElement('div');
   drawerHeader.className = "toc-drawer__header";
   drawerHeader.innerHTML = `
     <div class="toc-drawer__title">文章目录</div>
     <button class="toc-drawer__close">×</button>
   `;
-  // 目录内容容器
   const drawerContent = document.createElement('div');
   drawerContent.className = "toc-drawer__content";
-  drawerContent.innerHTML = originToc.innerHTML;
-
-  // 组装抽屉DOM
+  drawerContent.innerHTML = tocHtml;
   drawer.append(drawerHeader, drawerContent);
   document.body.append(btn,drawer);
-
   // 打开抽屉
   btn.onclick=()=>{
     drawer.classList.toggle('open');
   };
-  // 右上角关闭按钮
+  // 关闭按钮
   drawer.querySelector('.toc-drawer__close').addEventListener('click', ()=>{
     drawer.classList.remove('open');
   });
-  // 点击抽屉空白区域关闭
+  // 点击空白关闭
   drawer.addEventListener('click', (e)=>{
     if(e.target === drawer) drawer.classList.remove('open');
   });
-  // 点击目录链接自动关闭抽屉
+  // 点击目录链接关闭抽屉
   drawer.querySelectorAll('a').forEach(link=>{
     link.addEventListener('click', ()=>{
       drawer.classList.remove('open');
     })
   })
 }
-
-// 初次加载，加短延迟等待DOM渲染完成
 document.addEventListener('DOMContentLoaded', ()=>{
   setTimeout(initMobileToc,150);
 });
-// PJAX无刷新跳转后重新初始化
 document.addEventListener('pjax:complete', ()=>{
   setTimeout(initMobileToc,150);
 });
