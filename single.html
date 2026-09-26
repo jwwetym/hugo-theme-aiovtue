@@ -27,3 +27,56 @@
   </div>
 </article>
 {{ end }}
+<style>
+@media (max-width:768px){
+  .toc-float-btn{position:fixed;right:16px;bottom:90px;z-index:9999;padding:10px 14px;background:#DF9193;color:#fff;border-radius:999px;border:none;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2);font-size:.9rem;}
+  .toc-drawer{position:fixed;left:0;top:-85vh;width:100%;height:80vh;overflow-y:auto;background:rgba(255,255,255,.97);z-index:9999;box-sizing:border-box;transition:top .3s ease;border-radius:0 0 16px 16px;}
+  .toc-drawer.open{top:0;}
+  .toc-drawer__header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #eee;position:sticky;top:0;background:inherit;z-index:1;}
+  .toc-drawer__title{font-size:1.1rem;font-weight:bold;}
+  .toc-drawer__close{font-size:1.4rem;border:none;background:transparent;cursor:pointer;padding:0 8px;}
+  .toc-drawer__content{padding:16px 20px 40px;}
+  .toc-drawer ul{padding-left:1.2rem;list-style:none;}
+  .toc-drawer li{margin:6px 0;}
+  .toc-drawer a{color:inherit;line-height:1.8;text-decoration:none;}
+  .dark .toc-drawer{background:#1c1c1c;color:#e5e5e5;}
+  .dark .toc-drawer__header{border-bottom-color:#333;}
+}
+</style>
+<script>
+(function(){
+  function initMobileToc(){
+    if(!window.matchMedia('(max-width:768px)').matches) return;
+    document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(function(el){el.remove();});
+    var article = document.querySelector('.post-content')
+               || document.querySelector('article .content')
+               || document.querySelector('article')
+               || document.querySelector('main');
+    if(!article) return;
+    var headings = article.querySelectorAll('h1,h2,h3,h4');
+    if(headings.length < 2) return;
+    var tocHtml = '<ul>';
+    headings.forEach(function(h){
+      if(!h.id) h.id = 'h-' + h.innerText.trim().replace(/[^\w\u4e00-\u9fa5]+/g,'-');
+      tocHtml += '<li><a href="#' + h.id + '">' + h.innerText + '</a></li>';
+    });
+    tocHtml += '</ul>';
+    var btn = document.createElement('button');
+    btn.className = 'toc-float-btn';
+    btn.type = 'button';
+    btn.innerText = '📖 目录';
+    var drawer = document.createElement('div');
+    drawer.className = 'toc-drawer';
+    drawer.innerHTML = '<div class="toc-drawer__header"><div class="toc-drawer__title">文章目录</div><button class="toc-drawer__close" type="button">×</button></div><div class="toc-drawer__content">' + tocHtml + '</div>';
+    document.body.appendChild(btn);
+    document.body.appendChild(drawer);
+    btn.addEventListener('click', function(){ drawer.classList.add('open'); });
+    drawer.querySelector('.toc-drawer__close').addEventListener('click', function(){ drawer.classList.remove('open'); });
+    drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ drawer.classList.remove('open'); }); });
+  }
+  if(document.readyState !== 'loading') initMobileToc();
+  else document.addEventListener('DOMContentLoaded', initMobileToc);
+  document.addEventListener('pjax:complete', function(){ setTimeout(initMobileToc, 80); });
+  document.addEventListener('pjax:end',      function(){ setTimeout(initMobileToc, 80); });
+})();
+</script>
