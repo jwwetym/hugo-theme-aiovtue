@@ -44,39 +44,75 @@
 </style>
 <script>
 (function(){
-  function initMobileToc(){
+  function buildToc(){
+    document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(function(el){ el.remove(); });
     if(!window.matchMedia('(max-width:768px)').matches) return;
-    document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(function(el){el.remove();});
-    var article = document.querySelector('.post-content')
+
+    var article = document.querySelector('.sakura-post-body')
+               || document.querySelector('.sakura-page-content')
                || document.querySelector('article .content')
                || document.querySelector('article')
                || document.querySelector('main');
     if(!article) return;
+
     var headings = article.querySelectorAll('h1,h2,h3,h4');
     if(headings.length < 2) return;
+
     var tocHtml = '<ul>';
     headings.forEach(function(h){
       if(!h.id) h.id = 'h-' + h.innerText.trim().replace(/[^\w\u4e00-\u9fa5]+/g,'-');
       tocHtml += '<li><a href="#' + h.id + '">' + h.innerText + '</a></li>';
     });
     tocHtml += '</ul>';
+
     var btn = document.createElement('button');
     btn.className = 'toc-float-btn';
     btn.type = 'button';
     btn.innerText = '📖 目录';
+
     var drawer = document.createElement('div');
     drawer.className = 'toc-drawer';
-    drawer.innerHTML = '<div class="toc-drawer__header"><div class="toc-drawer__title">文章目录</div><button class="toc-drawer__close" type="button">×</button></div><div class="toc-drawer__content">' + tocHtml + '</div>';
+    drawer.innerHTML =
+      '<div class="toc-drawer__header">' +
+        '<div class="toc-drawer__title">文章目录</div>' +
+        '<button class="toc-drawer__close" type="button">×</button>' +
+      '</div>' +
+      '<div class="toc-drawer__content">' + tocHtml + '</div>';
+
     document.body.appendChild(btn);
     document.body.appendChild(drawer);
+
     btn.addEventListener('click', function(){ drawer.classList.add('open'); });
-    drawer.querySelector('.toc-drawer__close').addEventListener('click', function(){ drawer.classList.remove('open'); });
-    drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ drawer.classList.remove('open'); }); });
+    drawer.querySelector('.toc-drawer__close').addEventListener('click', function(){
+      drawer.classList.remove('open');
+    });
+
+    // 关键：手动滚动 + 抢占 PJAX
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var id = a.getAttribute('href').slice(1);
+        var target = document.getElementById(id);
+        if(!target) return;
+        drawer.classList.remove('open');
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        try { history.replaceState(null, '', '#' + id); } catch(err){}
+      }, true);
+    });
   }
-  if(document.readyState !== 'loading') initMobileToc();
-  else document.addEventListener('DOMContentLoaded', initMobileToc);
-  document.addEventListener('pjax:complete', function(){ setTimeout(initMobileToc, 80); });
-  document.addEventListener('pjax:end',      function(){ setTimeout(initMobileToc, 80); });
+
+  if(document.readyState !== 'loading') buildToc();
+  else document.addEventListener('DOMContentLoaded', buildToc);
+
+  ['pjax:complete','pjax:end','swup:contentReplaced','turbo:load','barba:page']
+    .forEach(function(ev){ document.addEventListener(ev, function(){ setTimeout(buildToc, 80); }); });
+
+  var mo = new MutationObserver(function(){
+    if(!document.querySelector('.toc-float-btn')) setTimeout(buildToc, 100);
+  });
+  mo.observe(document.body, { childList: true, subtree: false });
 })();
 </script>
 {{ end }}
