@@ -27,7 +27,6 @@
 #   params.effects      全站背景特效（樱花/雨/雪等）
 #   params.pjax        无刷新跳转
 # =============================================================================
-
 # 站点正式访问地址（影响 sitemap、RSS、分享链接等绝对 URL，部署前务必与真实域名一致）
 baseURL = 'https://xxzy.526656.xyz/'
 locale = 'zh-cn'
@@ -36,27 +35,22 @@ title = '杰维特牡'          # 站点名称（浏览器标题、页脚版权�
 theme = 'aiovtue'           # 主题目录：themes/aiovtue/
 hasCJKLanguage = true      # 启用中文分词（搜索、摘要等）
 enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layouts/robots.txt）
-
 # --- 站点地图（sitemap.xml）---
 [sitemap]
   changefreq = 'weekly'    # 更新频率提示
   priority = 0.5
   filename = 'sitemap.xml'
-
 # --- 分页（首页文章列表）---
 [pagination]
   pagerSize = 30           # 每页文章数
-
 # --- 分类与标签 URL 路径 ---
 [taxonomies]
   category = 'categories'  # /categories/xxx/
   tag = 'tags'             # /tags/xxx/
-
 # --- 输出格式（首页与文章栏目额外生成 RSS）---
 [outputs]
   home = ['HTML', 'RSS']
   section = ['HTML', 'RSS']
-
 # --- Markdown 渲染 ---
 [markup]
   [markup.goldmark]
@@ -78,12 +72,10 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     startLevel = 1         # 目录从 h1 开始
     endLevel = 6           # 目录至 h6，不显示 h5/h6
     ordered = false
-
 # --- 资源类型：将 .excalidraw 识别为 JSON page bundle 资源 ---
 [mediaTypes]
   [mediaTypes."application/json"]
     suffixes = ["json", "excalidraw"]
-
 # =============================================================================
 # 站点参数（主题通过 .Site.Params 读取）
 # =============================================================================
@@ -97,44 +89,36 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   postIndent = true                            # 文章/关于页正文首行缩进 2em（单篇可写 indent: false 关闭）
   assetsHash = true                             # 强制每次构建时刷新 CSS/JS 缓存
   fingerprint = true
-
   # --- 文章/关于页正文 ---
   [params.post]
     fontSize = "1.3rem"                          # 正文字号（rem，如 0.95rem / 1.1rem）
-
   # --- 友链页 ---
   [params.links]
     layout = 'preview'                        # preview：卡片截图 | simple：长条头像+悬停预览
     rssEnable = true                         # 友链页「朋友动态」RSS 展示（关闭时不拉取 RSS）
     footerEnable = false                      # 全站页脚友链列表展示
-
   # --- 动态页（每条动态：content/moments/*.md，front matter 仅需 date）---
   [params.moments]
     layout = "memos"                          # memos：头像时间线 | cards：居中卡片
     cardMaxWidth = "720px"                    # cards 模式下列表最大宽度
-
   # --- 追番页（Bilibili 追番列表，构建时拉取 data/bangumi.json）---
   [params.bangumi]
     enable = true                             # 是否启用追番页与构建时数据拉取
     vmid = '334423445'                        # Bilibili 用户 UID（追番列表需空间公开）
     quote = '生命不息，追番不止！'              # 页面引言
-
   # --- Excalidraw 画板文章（content/excalidraw/<slug>/index.md + *.excalidraw）---
   # 独立栏目，首页/归档/搜索与 posts 合并展示；单页为交互式只读查看器
-
   # --- 全站加载动画（首页进入时的樱花加载页）---
   [params.loader]
     enable = true
     minShow = 0            # 最短显示时间（毫秒）
     maxDuration = 6000     # 最长等待时间（毫秒）
-
   # --- 侧栏 / 关于页作者信息 ---
   [params.author]
     name = 'ms'
     avatar = 'https://imgbed.ms1.asia/file/1787477630757_45岁中医形象生成__2_.png'
     statusEmoji = '☯'     # 头像角标
     statusMessage = '发呆ing...'
-
   # --- 首页 Hero 大图 / 视频轮播 ---
   # 媒体文件放在 static/hero/，此处写 URL 路径（以 / 开头）
   
@@ -146,7 +130,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     size = 20
     lineOpacity = 0.1
     lineOpacityDark = 0.1
-
   [params.hero]
     title = '新学中医'
     # motto：关闭一言时显示的格言；字符串=固定一句，数组=每次随机一条（打字机效果同一言）
@@ -169,13 +152,11 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
 	  'https://imgbed.ms1.asia/file/1787543711354_downloaded-image.jpeg',
       'https://imgbed.ms1.asia/file/1787487450650_tt1.png'
     ]
-
   # --- 页脚 ---
   [params.footer]
     since = 2026           # 版权起始年
     runtimeSince = '2026-06-01'   # 站点运行倒计时起点（YYYY-MM-DD）
     icp = '<a href="https://icp.gov.moe/?keyword=20260258" target="_blank" rel="noopener">川ICP备20260258号</a>'
-
 # --- 首页公告栏（右侧域名列表）---
   # --- 首页文章列表布局 ---
   # cards：默认卡片列表（含公告栏与随机文章轮播）
@@ -204,7 +185,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     
     # 下列配置在list模式下生效，不建议更改
     archiveHeatmapColumns = 13  # 右侧归档热力图：每行列数
-    archiveHeatmapRows = 4      # 右侧归档热力图：行数（格子总数 = 列数 × 行数）
+    archiveHeatmapRows = 4      # 右侧归档热力图：格子总数 = 列数 × 行数
     randomSidebarCount = 7      # 右侧随机文章显示篇数，不建议过多
     
     # 下方配置不建议动，过大会影响网页性能
@@ -223,7 +204,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     [[params.notice.sections]]
       label = '--- ***** ---'
       lines = ['让我们一起学习，一起进步，一起成长，一起成为更好的自己']
-
   # --- 侧栏 / Hero 社交图标（icon 为 Iconify 图标名）---
   [[params.social]]
     name = '导航'
@@ -250,12 +230,10 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     link = 'https://1.ms1.asia/'
     icon = 'ri-home-smile-fill'
     color = '#8cb1b3'
-
   # --- 归档 / 标签页 ECharts 图表 ---
   [params.charts]
     archivesStartMonth = '2024-03'   # 归档图起始月份
     tagsChartLength = 12             # 标签图显示 Top N
-
   # --- 文章页底部赞助按钮 ---
   [params.sponsor]
     enable = true
@@ -269,7 +247,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
       name = '微信支付'
       url = 'https://imgbed.ms1.asia/file/1787474547804_mm_facetoface_collect_qrcode_1787474500798.png'
       color = '#2DC100'
-
   # --- 文章版权声明（CC 协议）---
   [params.license]
     enable = true
@@ -283,23 +260,19 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   [params.signature]
     postCopyrightEnable = false
     footerEnable = false
-
   # --- 文章页脚导航 ---
   [params.postFooter]
     navigationMerge = true # 合并上一篇/下一篇导航样式
-
   # --- 评论系统（文章 / 友链 / 留言页共用）---
   # provider 可选：waline | twikoo
   # 单篇文章可在 front matter 写 comment: false 关闭评论区
   [params.comment]
     provider = 'waline'
-
   # --- Waline 评论（https://waline.js.org/）---
   # 仅当 params.comment.provider = waline 时生效；当前使用 twikoo，此处留作切换备用
   [params.waline]
     serverURL = 'https://api.zcservice.houlang.cloud/comment/c0b1dc76ff00367a174c2268069b07f8'                                # 切换到 waline 时填写服务端地址（末尾不要加 /）
     placeholder = '分享你的想法...'
-
   # --- Twikoo 评论（仅当 params.comment.provider = twikoo 时生效）---
   # 留空 envId 时评论区显示配置提示，不影响站点其它功能
   # visitorEnable：文章访问量统计（需 provider=twikoo 且已配置 envId）
@@ -307,7 +280,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   [params.twikoo]
     envId = 'https://your-twikoo-url'
     visitorEnable = true   # 开启文章访问数量统计，基于twikoo
-
   # --- 留言页信封动画图片（文件在 static/envelope/）---
   [params.envelope]
     before = '/envelope/before.png'
@@ -318,13 +290,11 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     openHeight = 1050
     openOffset = -200
     danmakuOpenBottomTrim = 140   # 信封展开时弹幕区域底部向上缩短（像素）
-
   # --- 顶栏标题 ---
   [params.navbar]
     titleParts = ['新学中医-', 'XXZY']   # 顶栏主标题分段（可产生动画效果）
     subTitle = '用阴阳的法眼看世界'
     offset = 0
-
     # 移动端下滑隐藏顶栏（默认首页false不生效，设 includeHome = true 则全站含首页生效）
     [params.navbar.mobileCollapse]
       enable = true
@@ -332,7 +302,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
       scrollThreshold = 5   # 滚动超过该距离后才允许隐藏（px）
       scrollDelta = 10        # 单次滑动超过该值触发隐藏/恢复（px）
       revealMode = 'scrollUp' # 隐藏后如何恢复：top = 回到顶部才显示 | scrollUp = 上划即显示
-
     # 电脑端下滑隐藏顶栏（min-width: 769px；默认关闭）
     [params.navbar.desktopCollapse]
       enable = true
@@ -340,17 +309,14 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
       scrollThreshold = 5
       scrollDelta = 5
       revealMode = 'scrollUp'
-
     # 顶栏随页面滚出视口（与自动隐藏互斥：对应端开启 collapse 时无效）
     [params.navbar.scrollWithPage]
       enable = false       # true = 内页顶栏随页面滚出视口；false = 全站 fixed 顶栏
       includeHome = false # false = 首页保持 fixed + Hero 全屏；true = 首页也随页滚动（透明顶栏叠层）
-
   # --- 全文搜索（Fuse.js）---
   [params.search]
     enable = true
     threshold = 0.35       # 匹配灵敏度（越小越严格）
-
   # --- 顶栏 / 侧栏导航菜单 ---
   # weight 越小越靠前；带 items 的项会展开子菜单
   [[params.menu.main]]
@@ -392,10 +358,10 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
       icon = 'mdi:video-outline'
       weight = 4
     [[params.menu.main]]
-    name = '留言'
-    url = '/comment/'
-    icon = 'ant-design:message-filled'
-    weight = 5
+      name = '留言'
+      url = '/comment/'
+      icon = 'ant-design:message-filled'
+      weight = 5
   [[params.menu.main]]
     name = '友链'
     url = '/links/'
@@ -406,7 +372,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     url = '/about/'
     icon = 'ant-design:idcard-filled'
     weight = 7
-
 # --- 音乐播放器（APlayer + Meting.js）---
   # enable：是否显示播放器；单页可在 front matter 写 musicPlayer: false 关闭
   [params.music]
@@ -422,7 +387,6 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     server = 'netease'
     type = 'playlist'                             # playlist | song | album | artist
     id = '2580064383'                             # 网易云歌单/歌曲 ID
-
   # --- Live2D 看板娘（左下角 Live2D 角色）---
   # enable：是否启用；单页可在 front matter 写 live2d: false 关闭
   # [params.live2d]
@@ -430,13 +394,11 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
   # minWidth = 768                                # 低于此宽度不加载
   #  drag = false
   # tools = ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit']
-
     # 看板娘运行时（脚本 / 样式 / 提示语，一般保持默认即可）
     # widget = 'https://live2d.kafuchino.top/'
     # waifuTips = 'jsdelivr/sequential/waifu-tips.js'
     # waifuCss = 'css/left.css'
     # waifuTipsJson = 'waifu-tips.json'
-
     # 模型库 cdnPath（静态模型目录，含 model_list.json）— 与 apiPath 二选一
     cdnPath = 'https://live2d.kafuchino.top/'     # nova1751 扩展库：少女前线等（21 组模型）
     # 备用模型库（取消注释一行替换上方 cdnPath 即可切换模型种类）：
@@ -446,14 +408,12 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     #
     # 模型库 apiPath（fghrsh 动态 PHP 接口；启用时需注释掉上方 cdnPath）：
     # apiPath = 'https://live2d.fghrsh.net/api/'                      # fghrsh 官方动态 API（接口式换模型/皮肤）
-
   # --- 团团猫动态鼠标指针 ---
   # enable：是否启用；单页可在 front matter 写 mouse: false 关闭
   [params.mouse]
     enable = true
     path = '/mouse/tuantuanma/'                  # 预压缩 WebP + manifest.json（见 static/mouse/tuantuanma/）
     scale = 0.25                                  # manifest 内记录的缩放；重新压缩时改 compress-mouse 脚本参数
-
   # --- 全站背景特效（yzhanWeather · MIT，本地静态资源）---
   # enable：是否启用；单页可在 front matter 写 effects: false 关闭
   # type：sakura | rain | snow | firefly | butterfly | random（每次打开随机一种）
@@ -468,9 +428,86 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     maxDuration = 10                                # 动画基准周期（秒），越大越慢
     zIndex = 5                                      # 层级，需低于弹窗/导航
     script = '/vendor/yzhanweather/yzhanweather.min.js'
-
   # --- 站内无刷新跳转（PJAX）---
   [params.pjax]
     enable = true
     fadeDuration = 200                            # 内容区淡入淡出时长（毫秒）
     mountDelay = 120                              # 页内跳转：CSS/JS 就绪后额外等待（毫秒），减少布局突变
+
+# ========== 自定义CSS+JS：移动端底部上滑抽屉目录 ==========
+customCSS = '''
+<style>
+/* 手机端隐藏原生右侧目录 */
+@media (max-width:768px){
+  .post-toc { display: none !important; }
+  /* 悬浮按钮 */
+  .toc-float-btn{
+    position:fixed;
+    right:16px;
+    bottom:90px;
+    z-index:999;
+    padding:10px 14px;
+    background:#DF9193;
+    color:#fff;
+    border-radius:999px;
+    border:none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-size:0.9rem;
+  }
+  /* 底部抽屉容器，从底部弹出 */
+  .toc-drawer{
+    position:fixed;
+    left:0;
+    bottom:-85vh;
+    width:100%;
+    height:80vh;
+    overflow-y:auto;
+    background:rgba(255,255,255,0.96);
+    z-index:998;
+    padding:20px 20px 80px;
+    box-sizing:border-box;
+    transition: bottom 0.3s ease;
+    border-radius:16px 16px 0 0;
+  }
+  .toc-drawer.open{ bottom:0; }
+  /* 深色模式适配 */
+  .dark .toc-drawer{ background:#1c1c1c; }
+  .toc-drawer ul{padding-left:1.2rem;}
+  .toc-drawer li{margin:6px 0;}
+}
+</style>
+<script>
+// PJAX兼容，每次页面刷新/跳转都重新挂载目录
+function initMobileToc(){
+  const isMobile = window.matchMedia('(max-width:768px)').matches;
+  if(!isMobile) return;
+  // 清理旧按钮抽屉，防止pjax重复生成
+  document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(el=>el.remove());
+  const originToc = document.querySelector('.post-toc');
+  if(!originToc) return;
+  // 悬浮按钮
+  const btn = document.createElement('button');
+  btn.className="toc-float-btn";
+  btn.innerText="📖 目录";
+  // 底部抽屉
+  const drawer = document.createElement('div');
+  drawer.className="toc-drawer";
+  drawer.innerHTML = originToc.innerHTML;
+  document.body.append(btn,drawer);
+  // 打开关闭
+  btn.onclick=()=>drawer.classList.toggle('open');
+  // 点击抽屉空白处关闭
+  drawer.onclick = (e)=>{
+    if(e.target === drawer) drawer.classList.remove('open');
+  }
+  // 点击目录内链接自动关闭抽屉
+  drawer.querySelectorAll('a').forEach(link=>{
+    link.onclick = ()=>drawer.classList.remove('open');
+  })
+}
+// 页面初次加载执行
+document.addEventListener('DOMContentLoaded', initMobileToc);
+// PJAX 无刷新跳转后重新初始化
+document.addEventListener('pjax:complete', initMobileToc);
+</script>
+'''
