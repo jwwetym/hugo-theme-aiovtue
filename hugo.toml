@@ -373,9 +373,9 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     icon = 'ant-design:idcard-filled'
     weight = 7
 # --- 音乐播放器（APlayer + Meting.js）---
-  # enable：是否显示播放器；单页可在 front matter 写 musicPlayer: false 关闭
+  # enable：是否显示播放器；单页可在 front matter 写 musicPlayer: false 关闭 true 开启
   [params.music]
-    enable = true
+    enable = false
     position = 'right'        # left | right，按钮默认停靠左下或右下
     
     # apis：按顺序尝试，前一个不可用时自动切换下一个，默认不需要动
@@ -434,7 +434,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     fadeDuration = 200                            # 内容区淡入淡出时长（毫秒）
     mountDelay = 120                              # 页内跳转：CSS/JS 就绪后额外等待（毫秒），减少布局突变
 
-# ========== 自定义CSS+JS：移动端底部上滑抽屉目录 ==========
+# ========== 【修复版】移动端底部抽屉目录 【只替换下面这一段，上面所有配置保留不动！】 ==========
 customCSS = '''
 /* 手机端隐藏原生右侧目录 */
 @media (max-width:768px){
@@ -444,7 +444,7 @@ customCSS = '''
     position:fixed;
     right:16px;
     bottom:90px;
-    z-index:9999 !important;
+    z-index:999;
     padding:10px 14px;
     background:#DF9193;
     color:#fff;
@@ -453,53 +453,24 @@ customCSS = '''
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     font-size:0.9rem;
   }
-  /* ===== 顶部抽屉容器（从顶部弹出）===== */
+  /* 底部抽屉容器，从底部弹出 */
   .toc-drawer{
     position:fixed;
     left:0;
-    top:-85vh;
+    bottom:-85vh;
     width:100%;
     height:80vh;
     overflow-y:auto;
     background:rgba(255,255,255,0.96);
-    z-index:9998 !important;
+    z-index:998;
+    padding:20px 20px 80px;
     box-sizing:border-box;
-    transition: top 0.3s ease;
-    border-radius:0 0 16px 16px;
+    transition: bottom 0.3s ease;
+    border-radius:16px 16px 0 0;
   }
-  .toc-drawer.open{ top:0; }
-
-  /* 抽屉头部标题栏 */
-  .toc-drawer__header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:16px 20px;
-    border-bottom:1px solid #eee;
-    position:sticky;
-    top:0;
-    background:inherit;
-    z-index:1;
-  }
-  .toc-drawer__title{
-    font-size:1.1rem;
-    font-weight:bold;
-  }
-  .toc-drawer__close{
-    font-size:1.4rem;
-    border:none;
-    background:transparent;
-    cursor:pointer;
-    padding:0 8px;
-  }
-  /* 目录内容区域 */
-  .toc-drawer__content{
-    padding:16px 20px 40px;
-  }
-
+  .toc-drawer.open{ bottom:0; }
   /* 深色模式适配 */
   .dark .toc-drawer{ background:#1c1c1c; }
-  .dark .toc-drawer__header{ border-bottom-color:#333; }
   .toc-drawer ul{padding-left:1.2rem;}
   .toc-drawer li{margin:6px 0;}
   .toc-drawer a{
@@ -532,35 +503,16 @@ function initMobileToc(){
   const btn = document.createElement('button');
   btn.className="toc-float-btn";
   btn.innerText="📖 目录";
-
-  // 抽屉整体容器
+  // 底部抽屉
   const drawer = document.createElement('div');
   drawer.className="toc-drawer";
-
-  // 【新增：标题头部】
-  const drawerHeader = document.createElement('div');
-  drawerHeader.className = "toc-drawer__header";
-  drawerHeader.innerHTML = `
-    <div class="toc-drawer__title">文章目录</div>
-    <button class="toc-drawer__close">×</button>
-  `;
-  // 目录内容容器
-  const drawerContent = document.createElement('div');
-  drawerContent.className = "toc-drawer__content";
-  drawerContent.innerHTML = originToc.innerHTML;
-
-  // 组装抽屉DOM
-  drawer.append(drawerHeader, drawerContent);
+  drawer.innerHTML = originToc.innerHTML;
   document.body.append(btn,drawer);
 
-  // 打开抽屉
+  // 打开关闭抽屉
   btn.onclick=()=>{
     drawer.classList.toggle('open');
   };
-  // 右上角关闭按钮
-  drawer.querySelector('.toc-drawer__close').addEventListener('click', ()=>{
-    drawer.classList.remove('open');
-  });
   // 点击抽屉空白区域关闭
   drawer.addEventListener('click', (e)=>{
     if(e.target === drawer) drawer.classList.remove('open');
