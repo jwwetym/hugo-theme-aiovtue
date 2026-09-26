@@ -1,5 +1,6 @@
 ---
 title: "扶阳思考与临证实践"
+toc: true
 description: "扶阳思考与临证实践"
 date: 2026-09-22
 lastmod: 2026-09-22
