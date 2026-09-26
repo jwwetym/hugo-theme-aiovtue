@@ -373,9 +373,9 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     icon = 'ant-design:idcard-filled'
     weight = 7
 # --- 音乐播放器（APlayer + Meting.js）---
-  # enable：是否显示播放器；单页可在 front matter 写 musicPlayer: false 关闭
+  # enable：是否显示播放器；单页可在 front matter 写 musicPlayer: false 关闭 true 打开
   [params.music]
-    enable = true
+    enable = false
     position = 'right'        # left | right，按钮默认停靠左下或右下
     
     # apis：按顺序尝试，前一个不可用时自动切换下一个，默认不需要动
@@ -434,7 +434,7 @@ enableRobotsTXT = true     # 生成 robots.txt（模板在 themes/aiovtue/layout
     fadeDuration = 200                            # 内容区淡入淡出时长（毫秒）
     mountDelay = 120                              # 页内跳转：CSS/JS 就绪后额外等待（毫秒），减少布局突变
 	
-# ========== 新增：自定义CSS注入，开启移动端右侧固定目录（方案2，手机右侧常驻TOC）==========
+# ========== 自定义CSS：移动端顶部弹出抽屉目录 ==========
 customCSS = '''
 /* 手机端隐藏原生右侧目录 */
 @media (max-width:768px){
@@ -468,7 +468,6 @@ customCSS = '''
     border-radius:0 0 16px 16px;
   }
   .toc-drawer.open{ top:0; }
-
   /* 抽屉头部标题栏 */
   .toc-drawer__header{
     display:flex;
@@ -496,7 +495,6 @@ customCSS = '''
   .toc-drawer__content{
     padding:16px 20px 40px;
   }
-
   /* 深色模式适配 */
   .dark .toc-drawer{ background:#1c1c1c; }
   .dark .toc-drawer__header{ border-bottom-color:#333; }
@@ -508,64 +506,75 @@ customCSS = '''
   }
 }
 '''
-
 customJS = '''
 function initMobileToc(){
   const isMobile = window.matchMedia('(max-width:768px)').matches;
+  console.log("【目录调试】是否移动端：", isMobile);
   if(!isMobile) return;
 
-  // 清理旧元素，防止pjax重复生成
+  // 清除旧DOM，pjax重复加载防护
   document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(el=>el.remove());
 
-  const originToc = document.querySelector('.post-toc');
-  if(!originToc){
-    console.log("【目录调试】找不到 .post-toc 元素！检查文章frontmatter是否开启toc: true");
+  // 尝试两种文章容器选择器，兼容aiovtue主题
+  const article = document.querySelector('article') || document.querySelector('.post-content');
+  if(!article){
+    console.log("【目录调试】找不到文章容器 article / .post-content");
     return;
   }
-  if(originToc.innerHTML.trim() === ""){
-    console.log("【目录调试】目录内容为空，文章没有h标题");
+  // 抓取 h1 h2 h3 h4
+  const headings = article.querySelectorAll('h1,h2,h3,h4');
+  if(headings.length === 0){
+    console.log("【目录调试】文章内没有h1~h4标题，不生成目录");
     return;
   }
+  console.log("【目录调试】抓到标题数量：", headings.length);
 
-  console.log("【目录调试】成功读取目录");
+  let tocHtml = "<ul>";
+  headings.forEach(h=>{
+    // 自动生成id，防止无id锚点失效
+    if(!h.id){
+      h.id = "heading-" + encodeURIComponent(h.innerText.trim());
+    }
+    tocHtml += `<li><a href="#${h.id}">${h.innerText}</a></li>`;
+  })
+  tocHtml += "</ul>";
+
   // 悬浮按钮
   const btn = document.createElement('button');
   btn.className="toc-float-btn";
   btn.innerText="📖 目录";
 
-  // 抽屉整体容器
+  // 抽屉容器
   const drawer = document.createElement('div');
   drawer.className="toc-drawer";
 
-  // 【新增：标题头部】
   const drawerHeader = document.createElement('div');
   drawerHeader.className = "toc-drawer__header";
   drawerHeader.innerHTML = `
     <div class="toc-drawer__title">文章目录</div>
     <button class="toc-drawer__close">×</button>
   `;
-  // 目录内容容器
+
   const drawerContent = document.createElement('div');
   drawerContent.className = "toc-drawer__content";
-  drawerContent.innerHTML = originToc.innerHTML;
+  drawerContent.innerHTML = tocHtml;
 
-  // 组装抽屉DOM
   drawer.append(drawerHeader, drawerContent);
   document.body.append(btn,drawer);
 
   // 打开抽屉
-  btn.onclick=()=>{
-    drawer.classList.toggle('open');
+  btn.onclick = ()=>{
+    drawer.classList.add('open');
   };
-  // 右上角关闭按钮
+  // 关闭按钮
   drawer.querySelector('.toc-drawer__close').addEventListener('click', ()=>{
     drawer.classList.remove('open');
   });
-  // 点击抽屉空白区域关闭
+  // 点击空白关闭
   drawer.addEventListener('click', (e)=>{
     if(e.target === drawer) drawer.classList.remove('open');
   });
-  // 点击目录链接自动关闭抽屉
+  // 点击目录链接关闭抽屉
   drawer.querySelectorAll('a').forEach(link=>{
     link.addEventListener('click', ()=>{
       drawer.classList.remove('open');
@@ -573,12 +582,12 @@ function initMobileToc(){
   })
 }
 
-// 初次加载，加短延迟等待DOM渲染完成
+// 页面初次加载
 document.addEventListener('DOMContentLoaded', ()=>{
-  setTimeout(initMobileToc,150);
+  setTimeout(initMobileToc,250);
 });
-// PJAX无刷新跳转后重新初始化
+// PJAX跳转后重新执行
 document.addEventListener('pjax:complete', ()=>{
-  setTimeout(initMobileToc,150);
+  setTimeout(initMobileToc,250);
 });
 '''
