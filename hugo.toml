@@ -498,6 +498,7 @@ customCSS = '''
   /* 深色模式适配 */
   .dark .toc-drawer{ background:#1c1c1c; }
   .dark .toc-drawer__header{ border-bottom-color:#333; }
+  .dark .toc-drawer a { color: #e5e5e5; }
   .toc-drawer ul{padding-left:1.2rem;}
   .toc-drawer li{margin:6px 0;}
   .toc-drawer a{
@@ -511,10 +512,8 @@ function initMobileToc(){
   const isMobile = window.matchMedia('(max-width:768px)').matches;
   console.log("【目录调试】是否移动端：", isMobile);
   if(!isMobile) return;
-
   // 清除旧DOM，pjax重复加载防护
   document.querySelectorAll('.toc-float-btn,.toc-drawer').forEach(el=>el.remove());
-
   // 尝试两种文章容器选择器，兼容aiovtue主题
   const article = document.querySelector('article') || document.querySelector('.post-content');
   if(!article){
@@ -528,40 +527,34 @@ function initMobileToc(){
     return;
   }
   console.log("【目录调试】抓到标题数量：", headings.length);
-
   let tocHtml = "<ul>";
   headings.forEach(h=>{
-    // 自动生成id，防止无id锚点失效
+    // 自动生成id，清洗中文，避免%非法字符
     if(!h.id){
-      h.id = "heading-" + encodeURIComponent(h.innerText.trim());
+      const txt = h.innerText.trim().replace(/[^\w\u4e00-\u9fa5]/g, '-');
+      h.id = "heading-" + txt;
     }
     tocHtml += `<li><a href="#${h.id}">${h.innerText}</a></li>`;
   })
   tocHtml += "</ul>";
-
   // 悬浮按钮
   const btn = document.createElement('button');
   btn.className="toc-float-btn";
   btn.innerText="📖 目录";
-
   // 抽屉容器
   const drawer = document.createElement('div');
   drawer.className="toc-drawer";
-
   const drawerHeader = document.createElement('div');
   drawerHeader.className = "toc-drawer__header";
   drawerHeader.innerHTML = `
     <div class="toc-drawer__title">文章目录</div>
     <button class="toc-drawer__close">×</button>
   `;
-
   const drawerContent = document.createElement('div');
   drawerContent.className = "toc-drawer__content";
   drawerContent.innerHTML = tocHtml;
-
   drawer.append(drawerHeader, drawerContent);
   document.body.append(btn,drawer);
-
   // 打开抽屉
   btn.onclick = ()=>{
     drawer.classList.add('open');
@@ -581,13 +574,13 @@ function initMobileToc(){
     })
   })
 }
-
 // 页面初次加载
 document.addEventListener('DOMContentLoaded', ()=>{
-  setTimeout(initMobileToc,250);
+  setTimeout(initMobileToc,100);
 });
 // PJAX跳转后重新执行
 document.addEventListener('pjax:complete', ()=>{
-  setTimeout(initMobileToc,250);
+  setTimeout(initMobileToc,100);
 });
 '''
+
